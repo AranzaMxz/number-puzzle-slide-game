@@ -25,6 +25,7 @@ def getPosition(values):
                 replaceValue(values, selection, num)
                 printBoard(len(values), values)
                 break
+    return values
 
 def insert(values):
-    getPosition(values)
+    return getPosition(values)
