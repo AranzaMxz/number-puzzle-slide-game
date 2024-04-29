@@ -1,4 +1,5 @@
 from Data.conditions import checkInput
+from Data.conditions import checkNotNumber
 from Board.matrix import printBoard
 
 def replaceValue(values, position, newValue):
@@ -19,7 +20,7 @@ def getPosition(values):
     for i in range(len(values)**2 - 1):
         while True:
             selection = input(f"\nWhere do you wanna put the {i + 1} ?: ")
-            if checkInput(values, selection):
+            if checkInput(values, selection) and checkNotNumber(selection):
                 num = str(i + 1 ) + " "
                 replaceValue(values, selection, num)
                 printBoard(len(values), values)

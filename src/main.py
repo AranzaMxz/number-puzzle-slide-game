@@ -3,12 +3,12 @@ from Board.matrix import getBoard
 from Data.insertNums import insert
 
 print("\t---------------------------------------")
-print("\n\t      N U M B E R   P U Z Z L E\n")
+print("\n\t N U M B E R   P U Z Z L E   S L I D E\n")
 print("\t---------------------------------------\n")
 
 # Get the board size
 sizeBoard = getBoardSize()
-# Print the board
+# Print the reference board
 values = getBoard(sizeBoard)
 
 # Inserts the number in the position what the player wants
