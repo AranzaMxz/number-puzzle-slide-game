@@ -19,4 +19,5 @@ def targetStatus(values):
 
     # We reshape the list to the original matrix size
     ordMatrix = ordList.reshape(matrixArray.shape)
-    print(ordMatrix)
+    #print(ordMatrix)
+    return ordMatrix
