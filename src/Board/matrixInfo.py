@@ -3,9 +3,9 @@
 def getBoardSize():
     while True:
         try:
-            size = int(input("Write the board size (min 3 - max 7): "))
-            if size < 3:   
-                print("The minium is 3. Try again\n")
+            size = int(input("Write the board size (min 2 - max 7): "))
+            if size < 2:   
+                print("The minium is 2. Try again\n")
             elif size > 7:
                 print("The maximum is 7. Try again\n")
             else:

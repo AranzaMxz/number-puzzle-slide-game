@@ -11,13 +11,13 @@ print("\t---------------------------------------\n")
 # Get the board size
 sizeBoard = getBoardSize()
 # Print the reference board
-X_values = getBoard(sizeBoard)
+X_matrix = getBoard(sizeBoard)
 
 # Inserts the number in the position what the player wants
-values = insert(X_values)
+matrix = insert(X_matrix)
 
-targetMatrix = targetStatus(values)
+goalMatrix, goalsPosition = targetStatus(matrix)
 
-algorithm(values,targetMatrix)
+algorithm(matrix, goalMatrix, goalsPosition)
 
 

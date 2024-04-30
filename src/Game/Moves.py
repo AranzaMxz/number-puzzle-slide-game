@@ -1,8 +1,7 @@
 import numpy as np
 
-def generateMoves(matrix):
-    # Find the position of blank space
-    blank_pos = np.where(matrix == "  ")
+def generateMoves(matrix, blank_pos):
+    
 
     moves = [] # Save all the possibles matrix generate of move tha blank space
 

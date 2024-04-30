@@ -19,5 +19,15 @@ def targetStatus(values):
 
     # We reshape the list to the original matrix size
     ordMatrix = ordList.reshape(matrixArray.shape)
+
+    goalPositions = {}
+    for i in range(len(ordMatrix)**2):
+        # Convert i to string
+        num = str(i) + "  "
+        # Finds the positions of i 
+        position = np.where(ordMatrix == num)
+        goalPositions[num] = position
+
+
     #print(ordMatrix)
-    return ordMatrix
+    return ordMatrix, goalPositions
