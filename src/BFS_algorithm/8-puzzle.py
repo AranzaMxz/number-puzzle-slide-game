@@ -1,12 +1,12 @@
 import numpy as np
 
-class Node:
+class Node: # Define a state of the table as a node
     def __init__(self, state, parent, action):
         self.state = state
         self.parent = parent
         self.action = action
 
-class StackFrontier:
+class StackFrontier: # Set a stack for the possible nodes to search the solution
     def __init__(self):
         self.frontier = []
 
@@ -27,7 +27,7 @@ class StackFrontier:
             self.frontier = self.frontier[:-1]
             return node
 
-class QueueFrontier(StackFrontier):
+class QueueFrontier(StackFrontier): # Manage the stack as a queue
     def remove(self):
         if self.empty():
             raise Exception("Empty Frontier")
@@ -36,7 +36,7 @@ class QueueFrontier(StackFrontier):
             self.frontier = self.frontier[1:]
             return node
 
-class Puzzle:
+class Puzzle: # Like a main class that defines the game and the solution to this, setting the neighbors as the possible movements of the blank box
     def __init__(self, start, startIndex, goal, goalIndex):
         self.start = [start, startIndex]
         self.goal = [goal, goalIndex]
@@ -108,7 +108,6 @@ class Puzzle:
                     frontier.add(child)
                     self.explored.add(state_tuple)
 
-            # Debug print to monitor progress
             print(f"Explored: {self.num_explored} states")
 
     def print_solution(self):
@@ -123,7 +122,7 @@ class Puzzle:
         else:
             print("No solution found.")
 
-def create_user_defined_matrix(size):
+def start_matrix(size): # Method for the initaialization of the start state of the matrix 
     matrix = []
     used_numbers = set()
 
@@ -148,13 +147,14 @@ def create_user_defined_matrix(size):
 
     return np.array(matrix)
 
-size = 3
-start = create_user_defined_matrix(size)
-goal = np.array([[1,2,3],[4,5,6],[7,8,0]])
+# Setting some parameters as statics variables, it may be dinamically changed if is required
+size = 3 # Size of the board
+start = start_matrix(size) # Start state of the board matrix
+goal = np.array([[1,2,3],[4,5,6],[7,8,0]]) # State of the board to achieve
 
-startIndex = (int(np.where(start == 0)[0][0]), int(np.where(start == 0)[1][0]))
-goalIndex = (2, 2)
+start_zero_Index = (int(np.where(start == 0)[0][0]), int(np.where(start == 0)[1][0])) # Start posotion of the blank box
+goal_zero_Index = (2, 2) # Goal position of the blank box
 
-p = Puzzle(start, startIndex, goal, goalIndex)
-p.solve()
-p.print_solution()
+p = Puzzle(start, start_zero_Index, goal, goal_zero_Index) # Variable to start the game
+p.solve() # Runs the solve method that stores the solution if exists
+p.print_solution() # Print the solution found in the last Method
